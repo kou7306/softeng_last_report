@@ -8,7 +8,7 @@ with open('secret.json') as f:
 KEY = secret['KEY']
 openai.api_key = KEY
 
-#いらない？
+
 responses = [""]
 r = ""
 
@@ -35,7 +35,7 @@ def Ans_ChatGPT(question,responses):
 
 
 
-# タイトルの装飾用のCSSスタイル これは一つまとめる
+# タイトルの装飾用のCSSスタイル
 title_style = """
     <style>
     .title {
@@ -55,7 +55,6 @@ st.markdown("<h1 class='title'>レシピ検索</h1>", unsafe_allow_html=True)
 
 
 
-# 1つに
 comment = """
 余った食材で料理を作ろう！！
 """
@@ -69,7 +68,7 @@ if "flag" not in st.session_state:
     st.session_state["flag"] = 0
 
 
-# "検索" ボタンの装飾用のCSSスタイル 1つに
+# "検索" ボタンの装飾用のCSSスタイル
 search_button_style = f"""
     <style>
       div.stButton > button:first-child  {{
@@ -96,7 +95,6 @@ line = "-" * 100
 if(st.session_state["flag"] ==0 and search_button and len(ingredients)==0): #何も入力されていない
   st.text("食材を入力してください")
 if(st.session_state["flag"] ==0 and search_button and len(ingredients)!=0 ): #検索実行、1回目
-  #ここからの処理をまとめる、2回目以降も
   
   st.session_state["flag"] += 1 #検索フラグセット
   timeHolder = st.empty()
@@ -174,9 +172,9 @@ if(st.session_state["flag"]>1):
   if(st.session_state["flag"]==4): #4回目で終了
     st.session_state["flag"]=0
 if(st.session_state["flag"]>0):
-  if(st.session_state["flag"]==1): # ？
+  if(st.session_state["flag"]==1):
     st.session_state["flag"] += 1
-    #もっと見るボタン 1つに
+    #もっと見るボタン
   more_button_style = f"""
     <style>
       div.stButton > button:first-child + button  {{
